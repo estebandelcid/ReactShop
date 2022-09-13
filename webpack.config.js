@@ -11,6 +11,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
      },
      resolve: {
          extensions: ['.js', '.jsx'],
+         alias:{
+             '@components':path.resolve(__dirname,'src/components/'),
+             '@containers':path.resolve(__dirname,'src/containers/'),
+             '@styles':path.resolve(__dirname,'src/styles/'),
+             '@icons':path.resolve(__dirname,'src/assets/icons/'),
+             '@logos':path.resolve(__dirname,'src/assets/logos/'),
+             '@context':path.resolve(__dirname, 'src/context/'),
+              }
      },
      mode: 'development',
      module: {
@@ -37,7 +45,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
                     "css-loader",
                     "sass-loader",
                  ]
-             }
+             },
+             {
+                 test:/\.(png|svg|jpg|gif)$/,
+                 type:'asset'
+            },
          ]
      },
      plugins: [
